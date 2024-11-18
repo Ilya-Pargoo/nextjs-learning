@@ -1,2 +1,2 @@
-# start-project
+# nextjs-learning
 NextJS + Strapi + Versel task
