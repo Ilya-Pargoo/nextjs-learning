@@ -6,29 +6,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-  /* Fonts */
-  --font-family: "Open Sans", sans-serif;
-
-  /* Colors */
-  --background: #fbfbfb;
-  --text: #161616;
-  }
-}
-
 /* Basic styles */
 body {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  color: var(--text);
-  line-height: 1.5;
-  background: var(--background);
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
+  @apply 
+  bg-background 
+  text-text 
+  font-sans 
+  font-normal 
+  leading-relaxed 
+  sm:text-sm;
 }
