@@ -1,6 +1,9 @@
-import { NavItem } from "./types";
+type NavItem = {
+    text: string;
+    url: string;
+}
 
-export const navItems: NavItem[] = [
+export const NAV_ITEMS: NavItem[] = [
     { url: "/", text: "Home" },
     { url: "/world", text: "World" },
     { url: "/automobiles", text: "Automobiles" },

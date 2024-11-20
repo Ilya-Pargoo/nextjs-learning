@@ -1,5 +1,4 @@
-/* External styles */
-@import './components.css';
+/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 /* Basic settings */
@@ -7,29 +6,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer base {
+  :root {
   /* Fonts */
   --font-family: "Open Sans", sans-serif;
 
   /* Colors */
   --background: #fbfbfb;
   --text: #161616;
-  --subtext: #7a7a7a;
-  --main: #e33a6d;
-  --separator: #d1d1d1;
-
-  /* Shadows */
-  --custom-header-shadow: 0 2px 10px 0 rgba(22, 22, 22, 0.1);
+  }
 }
 
-/* General styles */
+
+/* Basic styles */
 body {
-  color: var(--text);
   font-family: var(--font-family);
-  font-size: 16px;
   font-weight: 400;
-  background: var(--background);
+  font-size: 16px;
+  color: var(--text);
   line-height: 1.5;
+  background: var(--background);
 }
 
 @media (max-width: 768px) {

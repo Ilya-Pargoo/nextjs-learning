@@ -1,7 +1,8 @@
-import { Footer } from "../common/footer"
-import { Header } from "../common/header"
+import { FC } from "react";
+import { Footer } from "../common/footer";
+import { Header } from "../common/header";
 
-export const Layout = ({ children }: { children: React.ReactNode }) =>
+export const Layout: FC<React.PropsWithChildren> = ({ children }) =>
 {
     return (
         <div>
@@ -9,5 +10,5 @@ export const Layout = ({ children }: { children: React.ReactNode }) =>
             {children}
             <Footer />
         </div>
-    )
-}
+    );
+};

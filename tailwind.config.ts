@@ -1,11 +1,8 @@
 import type { Config } from "tailwindcss";
+import plugin from 'tailwindcss/plugin';
 
 export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -15,20 +12,49 @@ export default {
       },
     },
     extend: {
+      spacing: {
+        4.5: "1.125rem",
+        15: '3.75rem',
+      },
       colors: {
-        background: "var(--background)",
-        text: 'var(--text)',
-        subtext: 'var(--subtext)',
-        main: 'var(--main)',
-        separator: 'var(--separator)',
+        background: "#fbfbfb",
+        text: "#161616",
+        subtext: "#7a7a7a",
+        main: "#e33a6d",
+        separator: "#d1d1d1",
       },
       boxShadow: {
-        'custom-header': 'var(--custom-header-shadow)',
+        header: "0 2px 10px 0 rgba(22, 22, 22, 0.1)",
       },
       fontFamily: {
-        sans: 'var(--font-family)',
+        sans: ['Open Sans', 'sans-serif'],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities, theme })
+    {
+      addUtilities({
+        '.header-link::before': {
+          content: "''",
+          position: 'absolute',
+          bottom: '0',
+          height: '4px',
+          backgroundColor: theme('colors.main'),
+          transition: 'width 0.3s ease, left 0.3s ease',
+        },
+
+        '.header-link-active::before': {
+          width: "100%",
+          left: "0",
+        },
+
+        '.header-link-mob-active::before': {
+          height: "100%",
+          width: "3px",
+          left: "0",
+        },
+      });
+    }),
+  ],
 } satisfies Config;
