@@ -46,7 +46,7 @@ export const Header: FC = () =>
               <li key={index}>
                 <Link href={item.url}
                   className={classNames(
-                    "header-link block py-1.3 relative font-semibold text-subtext transition-colors duration-200 ease-in",
+                    "header-link block py-1.3 px-3 relative font-semibold text-subtext transition-colors duration-200 ease-in",
                     "focus-visible:outline focus-visible:outline-main hover:text-text",
                     { "header-link-mob-active text-text": currentPath === item.url }
                   )}>
