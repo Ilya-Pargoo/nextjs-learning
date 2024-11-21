@@ -1,6 +1,3 @@
-export default function Home()
-{
-  return (
-    <div className="h-screen"></div>
-  );
+export default function Home() {
+  return <div className="min-h-screen"></div>;
 }
