@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { NAV_ITEMS } from "./constants";
-import MainLogoIcon from "@/../public/icons/logo.svg";
+import MainLogoIcon from "/public/icons/logo.svg";
 import { BurgerMenuButton } from "../buttons/burger-menu-button";
 
 export const Header: FC = () =>
@@ -39,7 +39,7 @@ export const Header: FC = () =>
         </nav >
         <BurgerMenuButton onClick={toggleMobileMenu} isOpen={isMobileMenuOpen} />
       </div>
-      {!!isMobileMenuOpen &&
+      {!!isMobileMenuOpen ?
         <nav className={classNames("bg-white shadow-md", "md:hidden")}>
           <ul className={"space-y-4  px-4 py-6"}>
             {NAV_ITEMS.map((item, index) => (
@@ -56,7 +56,7 @@ export const Header: FC = () =>
             ))}
           </ul>
         </nav >
-      }
+        : null}
     </header>
   )
 }

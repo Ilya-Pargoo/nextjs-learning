@@ -2,9 +2,9 @@ import { FC } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 import { NAV_ITEMS } from "./constants";
-import InstagramIcon from "@/../public/icons/instagram.svg";
-import FacebookIcon from "@/../public/icons/facebook.svg";
-import TwitterIcon from "@/../public/icons/twitter.svg";
+import InstagramIcon from "/public/icons/instagram.svg";
+import FacebookIcon from "/public/icons/facebook.svg";
+import TwitterIcon from "/public/icons/twitter.svg";
 
 export const Footer: FC = () =>
 {

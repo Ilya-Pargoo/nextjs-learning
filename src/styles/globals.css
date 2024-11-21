@@ -9,10 +9,16 @@
 /* Basic styles */
 body {
   @apply 
-  bg-background 
-  text-text 
-  font-sans 
-  font-normal 
-  leading-relaxed 
-  sm:text-sm;
+    bg-background 
+    text-text 
+    font-sans 
+    font-normal 
+    leading-relaxed 
+    text-base
+}
+
+@media (max-width: 768px) {
+  body {
+    @apply text-sm;
+  }
 }
