@@ -1,3 +1,14 @@
-export default function Home() {
-  return <div className="min-h-screen"></div>;
+function Home() {
+  return <div></div>;
 }
+
+export const getServerSideProps = async () => {
+  return {
+    redirect: {
+      destination: '/top-stories',
+      permanent: false,
+    },
+  };
+};
+
+export default Home;

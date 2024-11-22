@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import { Footer } from '../footer';
 import { Header } from '../header';
+import { QueryClientProvider } from '@/providers/query-client/QueryClientProvider';
 
 export const Layout: FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <div>
+    <QueryClientProvider>
       <Header />
       {children}
       <Footer />
-    </div>
+    </QueryClientProvider>
   );
 };

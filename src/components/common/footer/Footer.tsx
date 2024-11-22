@@ -12,13 +12,13 @@ export const Footer: FC = () => {
       <div className="container">
         <div
           className={classNames(
-            'py-5 flex flex-col gap-y-8 text-center border-t-2 border-solid border-separator',
-            'md:flex-row md:justify-between md:items-center md:space-y-0 md:text-left'
+            'flex flex-col gap-y-8 border-t-2 border-solid border-separator py-5 text-center',
+            'md:flex-row md:items-center md:justify-between md:space-y-0 md:text-left'
           )}
         >
           <p
             className={classNames(
-              'text-sm text-subtext order-1',
+              'order-1 text-sm text-subtext',
               'md:order-none'
             )}
           >
@@ -27,8 +27,8 @@ export const Footer: FC = () => {
           <nav>
             <ul
               className={classNames(
-                'flex flex-col space-y-5 justify-center',
-                'md:flex-row md:space-y-0 md:space-x-8'
+                'flex flex-col justify-center space-y-5',
+                'md:flex-row md:space-x-8 md:space-y-0'
               )}
             >
               {NAV_ITEMS.map((item, index) => (
@@ -37,7 +37,7 @@ export const Footer: FC = () => {
                     href={item.url}
                     className={classNames(
                       'text-sm text-subtext transition-colors duration-200 ease-in',
-                      'focus-visible:outline focus-visible:outline-main hover:text-text'
+                      'hover:text-text focus-visible:outline focus-visible:outline-main'
                     )}
                   >
                     {item.text}
@@ -48,34 +48,34 @@ export const Footer: FC = () => {
           </nav>
           <div
             className={classNames(
-              'flex justify-center space-x-8 items-center',
+              'flex items-center justify-center space-x-8',
               'md:space-x-4'
             )}
           >
             <a href="/" target="_blank">
               <TwitterIcon
                 className={classNames(
-                  'w-8 h-8 text-subtext transition-colors duration-200 ease-in',
+                  'h-8 w-8 text-subtext transition-colors duration-200 ease-in',
                   'hover:text-text',
-                  'md:w-5 md:h-4'
+                  'md:h-4 md:w-5'
                 )}
               />
             </a>
             <a href="/" target="_blank">
               <FacebookIcon
                 className={classNames(
-                  'w-8 h-9 text-subtext transition-colors duration-200 ease-in',
+                  'h-9 w-8 text-subtext transition-colors duration-200 ease-in',
                   'hover:text-text',
-                  'md:w-4.5 md:h-4.5'
+                  'md:h-4.5 md:w-4.5'
                 )}
               />
             </a>
             <a href="/" target="_blank">
               <InstagramIcon
                 className={classNames(
-                  'w-8 h-8 text-subtext transition-colors duration-200 ease-in',
+                  'h-8 w-8 text-subtext transition-colors duration-200 ease-in',
                   'hover:text-text',
-                  'md:w-4 md:h-4'
+                  'md:h-4 md:w-4'
                 )}
               />
             </a>
