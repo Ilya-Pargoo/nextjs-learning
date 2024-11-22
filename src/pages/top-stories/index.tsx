@@ -5,7 +5,7 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { prefetchTopStories } from '@/api/top-stories/queries';
-import { TopStories } from '@/components/common/top-stories/TopStories';
+import { TopStories } from '@/components/top-stories/TopStories';
 
 type Props = {
   dehydratedState: DehydratedState;
