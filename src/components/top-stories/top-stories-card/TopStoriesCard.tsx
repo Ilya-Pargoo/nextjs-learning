@@ -20,7 +20,8 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
   return (
     <article
       className={classNames(
-        'flex w-full flex-col rounded-lg bg-white shadow-top-stories',
+        'ease-in-out" flex w-full flex-col rounded-lg bg-white shadow-top-stories transition-shadow duration-300',
+        'hover:shadow-lg',
         'md:flex-row'
       )}
     >

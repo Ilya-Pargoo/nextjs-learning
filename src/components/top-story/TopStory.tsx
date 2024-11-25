@@ -1,10 +1,24 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { useTopStories } from '@/api/top-stories/queries';
-import { TopStoriesList } from './top-stories-list';
+import { useFetchSingleStory } from '@/api/top-stories/queries';
+import { TopStoryDetails } from './components/top-story-details';
 
-export const TopStories: FC = () => {
-  const { data: topStories, isLoading, isError, refetch } = useTopStories();
+export const TopStory: FC = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  const {
+    data: topStory,
+    isLoading,
+    refetch,
+    isError,
+    error,
+  } = useFetchSingleStory(slug?.toString() || '');
+
+  useEffect(() => {
+    if (error?.message === 'Error fetching article.') router.push('/404');
+  }, [error]);
 
   if (isLoading) {
     return (
@@ -35,10 +49,6 @@ export const TopStories: FC = () => {
   }
 
   return (
-    <main>
-      <div className={classNames('container py-5', 'md:py-10')}>
-        <TopStoriesList topStories={topStories?.results || []} />
-      </div>
-    </main>
+    <main>{topStory ? <TopStoryDetails topStory={topStory} /> : null}</main>
   );
 };
