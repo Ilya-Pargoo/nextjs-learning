@@ -16,13 +16,3 @@ export const prefetchTopStories = async (queryClient: QueryClient) =>
     queryKey: [QueryKeys.TOP_STORIES],
     queryFn: fetchTopStories,
   });
-
-export const useRefetchTopStories = () => {
-  const queryClient = useQueryClient();
-
-  const refetchTopStories = () => {
-    queryClient.invalidateQueries({ queryKey: ['topStories'] });
-  };
-
-  return { refetchTopStories };
-};

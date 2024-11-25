@@ -1,4 +1,4 @@
-export type TopStoryType = {
+export type TopStory = {
   section: string;
   subsection: string;
   title: string;
@@ -29,11 +29,11 @@ export type TopStoryType = {
   short_url: string;
 };
 
-export type TopStoriesType = {
+export type TopStories = {
   status: string;
   copyright: string;
   section: string;
   last_updated: string;
   num_results: number;
-  results: TopStoryType[];
+  results: TopStory[];
 };

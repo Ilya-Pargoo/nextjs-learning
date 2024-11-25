@@ -2,10 +2,10 @@ import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { formatDate } from '@/utils/formatDate';
-import { TopStoryType } from '@/api/top-stories/types';
+import { TopStory } from '@/api/top-stories/types';
 
 type Props = {
-  topStory: TopStoryType;
+  topStory: TopStory;
 };
 
 export const TopStoriesCard: FC<Props> = ({ topStory }) => {

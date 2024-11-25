@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import { useRefetchTopStories, useTopStories } from '@/api/top-stories/queries';
-import { TopStoriesList } from './top-stories-list';
+import { useTopStories } from '@/api/top-stories/queries';
+import { TopStoriesList } from './components/top-stories-list';
 
 export const TopStories: FC = () => {
-  const { data: topStories, isLoading, isError } = useTopStories();
-  const { refetchTopStories } = useRefetchTopStories();
+  const { data: topStories, isLoading, isError, refetch } = useTopStories();
 
   if (isLoading) {
     return (
@@ -22,7 +21,7 @@ export const TopStories: FC = () => {
           <strong className="font-bold">Error!</strong>
           <span className={classNames('block', 'sm:inline')}>Server error</span>
           <button
-            onClick={refetchTopStories}
+            onClick={() => refetch()}
             className={classNames(
               'rounded bg-red-500 px-4 py-2 text-white',
               'hover:bg-red-600'

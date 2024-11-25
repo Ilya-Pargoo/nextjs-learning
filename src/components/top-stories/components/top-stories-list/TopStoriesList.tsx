@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { TopStoriesCard } from '../top-stories-card';
-import { TopStoryType } from '@/api/top-stories/types';
+import { TopStory } from '@/api/top-stories/types';
 
 type Props = {
-  topStories: TopStoryType[];
+  topStories: TopStory[];
 };
 
 export const TopStoriesList: FC<Props> = ({ topStories }) => {
