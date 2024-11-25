@@ -17,8 +17,8 @@ export const Header: FC = () => {
   };
 
   return (
-    <header className="shadow-header content-center sticky top-0 z-50">
-      <div className="container flex items-center justify-between min-h-15">
+    <header className="content-center shadow-header">
+      <div className="container flex min-h-15 items-center justify-between">
         <Link href="/">
           <MainLogoIcon width={'129px'} height={'28px'} />
         </Link>
@@ -29,9 +29,9 @@ export const Header: FC = () => {
                 <Link
                   href={item.url}
                   className={classNames(
-                    'header-link block py-5 relative font-semibold text-subtext transition-colors duration-200 ease-in',
-                    'focus-visible:outline focus-visible:outline-main hover:text-text',
-                    { 'header-link-active text-text': currentPath === item.url }
+                    'relative block py-5 font-semibold text-subtext transition-colors duration-200 ease-in header-link',
+                    'hover:text-text focus-visible:outline focus-visible:outline-main',
+                    { 'text-text header-link-active': currentPath === item.url }
                   )}
                 >
                   {item.text}
@@ -47,16 +47,16 @@ export const Header: FC = () => {
       </div>
       {isMobileMenuOpen ? (
         <nav className={classNames('bg-white shadow-md', 'md:hidden')}>
-          <ul className={'space-y-4  px-4 py-6'}>
+          <ul className={'space-y-4 px-4 py-6'}>
             {NAV_ITEMS.map((item, index) => (
               <li key={index}>
                 <Link
                   href={item.url}
                   className={classNames(
-                    'header-link block py-1.3 px-3 relative font-semibold text-subtext transition-colors duration-200 ease-in',
-                    'focus-visible:outline focus-visible:outline-main hover:text-text',
+                    'py-1.3 relative block px-3 font-semibold text-subtext transition-colors duration-200 ease-in header-link',
+                    'hover:text-text focus-visible:outline focus-visible:outline-main',
                     {
-                      'header-link-mob-active text-text':
+                      'text-text header-link-mob-active':
                         currentPath === item.url,
                     }
                   )}

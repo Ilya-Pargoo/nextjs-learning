@@ -13,40 +13,40 @@ export const BurgerMenuButton: FC<Props> = ({ isOpen, onClick }) => {
       onClick={onClick}
     >
       <div className={'relative flex items-center justify-center'}>
-        <div className="flex flex-col justify-between w-5 h-5 transform transition-all duration-300 origin-center overflow-hidden">
+        <div className="flex h-5 w-5 origin-center transform flex-col justify-between overflow-hidden transition-all duration-300">
           <div
             className={classNames(
-              'bg-black h-[3.2px] w-6 transform transition-all duration-300 origin-left',
+              'h-[3.2px] w-6 origin-left transform bg-black transition-all duration-300',
               { 'translate-x-10': isOpen }
             )}
           />
           <div
             className={classNames(
-              'bg-black h-[3.2px] w-6 rounded transform transition-all duration-300 delay-75',
+              'h-[3.2px] w-6 transform rounded bg-black transition-all delay-75 duration-300',
               { 'translate-x-10': isOpen }
             )}
           />
           <div
             className={classNames(
-              'bg-black h-[3.2px] w-6 transform transition-all duration-300 origin-left delay-150',
+              'h-[3.2px] w-6 origin-left transform bg-black transition-all delay-150 duration-300',
               { 'translate-x-10': isOpen }
             )}
           />
           <div
             className={classNames(
-              'absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10',
-              { 'translate-x-0 flex w-0 w-12': isOpen }
+              'absolute top-2.5 -translate-x-10 transform items-center justify-between transition-all duration-500',
+              { 'flex w-0 w-12 translate-x-0': isOpen }
             )}
           >
             <div
               className={classNames(
-                'absolute bg-black h-0.5 w-5 transform transition-all duration-500 delay-300',
+                'absolute h-0.5 w-5 transform bg-black transition-all delay-300 duration-500',
                 { 'rotate-0': !isOpen, 'rotate-45': isOpen }
               )}
             />
             <div
               className={classNames(
-                'absolute bg-black h-0.5 w-5 transform transition-all duration-500 delay-300',
+                'absolute h-0.5 w-5 transform bg-black transition-all delay-300 duration-500',
                 { '-rotate-0': !isOpen, '-rotate-45': isOpen }
               )}
             />
