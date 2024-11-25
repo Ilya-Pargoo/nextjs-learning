@@ -12,6 +12,9 @@ export default {
       },
     },
     extend: {
+      maxWidth: {
+        '4.5xl': '62.5rem',
+      },
       spacing: {
         4.5: '1.125rem',
         15: '3.75rem',
@@ -29,6 +32,9 @@ export default {
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],
+      },
+      fontSize: {
+        '2.5xl': '1.75rem',
       },
       borderRadius: {
         1: '4px',

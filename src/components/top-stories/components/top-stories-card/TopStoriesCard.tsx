@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { formatDate } from '@/utils/formatDate';
+import { formatDate } from '@/helpers/formatDate';
 import { TopStory } from '@/api/top-stories/types';
 
 type Props = {
@@ -12,6 +12,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
   const desktopImage = topStory.multimedia.find(
     (media) => media.format === 'Super Jumbo'
   );
+
   const mobileImage = topStory.multimedia.find(
     (media) => media.format === 'threeByTwoSmallAt2X'
   );
@@ -19,7 +20,8 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
   return (
     <article
       className={classNames(
-        'flex w-full flex-col rounded-lg bg-white shadow-top-stories',
+        'flex w-full flex-col rounded-lg bg-white shadow-top-stories transition-shadow duration-300 ease-in-out',
+        'hover:shadow-xl',
         'md:flex-row'
       )}
     >
@@ -45,7 +47,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
       </div>
       <div
         className={classNames(
-          `relative w-full flex-shrink-0 pt-[70%]`,
+          `relative w-full flex-shrink-0 object-cover pt-[70%]`,
           'md:pt-[38%]',
           'md:w-1/2'
         )}
@@ -54,15 +56,15 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
           src={mobileImage?.url || ''}
           alt={mobileImage?.caption || ''}
           fill
-          objectFit="cover"
           className={classNames('block', 'md:hidden')}
+          sizes="(max-width: 767px) 100vw"
         />
         <Image
           src={desktopImage?.url || ''}
           alt={desktopImage?.caption || ''}
           fill
-          objectFit="cover"
           className={classNames('hidden', 'md:block')}
+          sizes="(min-width: 768px) 50vw"
         />
       </div>
     </article>
