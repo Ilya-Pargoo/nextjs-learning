@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 import { useTopStories } from '@/api/top-stories/queries';
-import { TopStoriesList } from './top-stories-list';
+import { TopStoriesList } from './components/top-stories-list';
 
 export const TopStories: FC = () => {
   const { data: topStories, isLoading, isError, refetch } = useTopStories();

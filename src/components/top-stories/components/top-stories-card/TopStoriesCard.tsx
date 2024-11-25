@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { formatDate } from '@/utils/formatDate';
+import { formatDate } from '@/helpers/formatDate';
 import { TopStory } from '@/api/top-stories/types';
 
 type Props = {
@@ -20,7 +20,8 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
   return (
     <article
       className={classNames(
-        'flex w-full flex-col rounded-lg bg-white shadow-top-stories',
+        'flex w-full flex-col rounded-lg bg-white shadow-top-stories transition-shadow duration-300 ease-in-out',
+        'hover:shadow-xl',
         'md:flex-row'
       )}
     >

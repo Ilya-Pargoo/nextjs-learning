@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
-import { formatDate } from '@/utils/formatDate';
+import { formatDate } from '@/helpers/formatDate';
 
 type Props = {
   topStory: TopStory;
@@ -55,14 +55,11 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
           sizes="(min-width: 768px) 100vw"
         />
       </div>
-
       <div className={classNames('container max-w-4.5xl')}>
         <h2 className="text-2.5xl mb-4 font-semibold leading-9">
           {topStory.title}
         </h2>
-
         <p className="mb-10 italic">{topStory.abstract}</p>
-
         <div className="space-y-4">
           <p>
             {topStory.abstract} {topStory.abstract} {topStory.abstract}{' '}

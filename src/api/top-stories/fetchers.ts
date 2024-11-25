@@ -20,8 +20,6 @@ export const fetchTopStoriesBySlug = async (slug: string) => {
   if (response.ok) {
     const data: TopStories = await response.json();
 
-    if (data.results.length <= 0) throw new Error('Failed to fetch data.');
-
     const singleStory = data.results.filter(
       (item) => generateSlug(item.title) === slug
     );
