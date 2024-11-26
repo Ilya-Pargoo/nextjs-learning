@@ -1,7 +1,8 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
+import { format } from 'date-fns';
 // import { format } from 'date-fns';
 
 type Props = {
@@ -17,8 +18,11 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
     (media) => media.format === 'threeByTwoSmallAt2X'
   );
 
-  // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
-  // const ss = new Date().toLocaleDateString();
+  const [date, setDate] = useState<string>('');
+
+  useEffect(() => {
+    setDate(format(topStory.created_date, 'MMMM d, yyyy, HH:mm'));
+  }, [topStory.created_date]);
 
   return (
     <article
@@ -34,7 +38,7 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
         <span className="max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
           {topStory.section}
         </span>
-        {/* <p className="text-sm">{ss}</p> */}
+        <p className="text-sm">{date}</p>
       </div>
       <div
         className={classNames(
