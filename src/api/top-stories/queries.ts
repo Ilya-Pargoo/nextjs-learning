@@ -13,12 +13,12 @@ export const useTopStories = () =>
   });
 
 export const prefetchTopStories = async (queryClient: QueryClient) =>
-  await queryClient.prefetchQuery({
+  queryClient.prefetchQuery({
     queryKey: [QueryKeys.TOP_STORIES],
     queryFn: fetchTopStories,
   });
 
-export const useFetchSingleStory = (slug: string) =>
+export const useSingleStory = (slug: string) =>
   useQuery({
     queryKey: [QueryKeys.TOP_SINGLE_STORY],
     queryFn: () => fetchTopStoriesBySlug(slug),
@@ -28,7 +28,7 @@ export const prefetchSingleStory = async (
   queryClient: QueryClient,
   slug: string
 ) =>
-  await queryClient.prefetchQuery({
+  queryClient.prefetchQuery({
     queryKey: [QueryKeys.TOP_SINGLE_STORY],
     queryFn: () => fetchTopStoriesBySlug(slug),
   });

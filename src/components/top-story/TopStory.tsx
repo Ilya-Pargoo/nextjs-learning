@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { useFetchSingleStory } from '@/api/top-stories/queries';
+import { useSingleStory } from '@/api/top-stories/queries';
 import { TopStoryDetails } from './components/top-story-details';
 
 export const TopStory: FC = () => {
@@ -14,10 +14,12 @@ export const TopStory: FC = () => {
     refetch,
     isError,
     error,
-  } = useFetchSingleStory(slug?.toString() || '');
+  } = useSingleStory(slug?.toString() || '');
 
   useEffect(() => {
-    if (error?.message === 'Error fetching article.') router.push('/404');
+    if (error?.message === 'Error fetching article.') {
+      router.push('/404');
+    }
   }, [error]);
 
   if (isLoading) {

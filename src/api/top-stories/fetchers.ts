@@ -24,7 +24,9 @@ export const fetchTopStoriesBySlug = async (slug: string) => {
       (item) => generateSlug(item.title) === slug
     );
 
-    if (singleStory.length <= 0) throw new Error('Error fetching article.');
+    if (singleStory.length <= 0) {
+      throw new Error('Error fetching article.');
+    }
 
     return singleStory[0];
   }
