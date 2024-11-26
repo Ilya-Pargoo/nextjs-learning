@@ -17,6 +17,8 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
     (media) => media.format === 'threeByTwoSmallAt2X'
   );
 
+  const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
+
   return (
     <article
       className={classNames('mx-auto max-w-4.5xl rounded-lg py-5', 'md:py-10')}
@@ -31,9 +33,7 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
         <span className="max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
           {topStory.section}
         </span>
-        <p className="text-sm">
-          {format(topStory.created_date, 'MMMM d, yyyy, HH:mm')}
-        </p>
+        <p className="text-sm">{date}</p>
       </div>
       <div
         className={classNames(
