@@ -18,7 +18,7 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
   );
 
   // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
-  const ss = new Date().toLocaleDateString();
+  // const ss = new Date().toLocaleDateString();
 
   return (
     <article
@@ -34,7 +34,7 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
         <span className="max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
           {topStory.section}
         </span>
-        <p className="text-sm">{ss.toString()}</p>
+        {/* <p className="text-sm">{ss}</p> */}
       </div>
       <div
         className={classNames(
