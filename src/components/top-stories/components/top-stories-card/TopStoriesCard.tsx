@@ -18,7 +18,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
   );
 
   // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
-  // const ss = new Date().toLocaleDateString();
+  const ss = new Date().toLocaleDateString();
 
   return (
     <article
@@ -38,11 +38,11 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
           <span className="mr-5 max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
             {topStory.section}
           </span>
-          {/* <p className={classNames('text-sm', 'md:hidden')}>{ss.toString()}</p> */}
+          <p className={classNames('text-sm', 'md:hidden')}>{ss}</p>
         </div>
         <h2 className="mb-4 text-xl font-semibold">{topStory.title}</h2>
         <p className={classNames('md:mb-4')}>{topStory.abstract}</p>
-        {/* <p className={classNames('mt-auto hidden text-sm', 'md:block')}>{ss}</p> */}
+        <p className={classNames('mt-auto hidden text-sm', 'md:block')}>{ss}</p>
       </div>
       <div
         className={classNames(
