@@ -26,7 +26,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
     }
   }, [topStory.created_date]);
 
-  function ss(e) {
+  function ss(e: string) {
     if (e) {
       return format(e, 'MMMM d, yyyy, HH:mm');
     }
