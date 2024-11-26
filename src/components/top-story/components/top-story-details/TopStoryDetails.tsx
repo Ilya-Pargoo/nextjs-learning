@@ -17,7 +17,8 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
     (media) => media.format === 'threeByTwoSmallAt2X'
   );
 
-  const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
+  // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
+  const ss = new Date();
 
   return (
     <article
@@ -33,7 +34,7 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
         <span className="max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
           {topStory.section}
         </span>
-        <p className="text-sm">{date}</p>
+        <p className="text-sm">{ss.toString()}</p>
       </div>
       <div
         className={classNames(
