@@ -18,7 +18,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
   );
 
   // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
-  const ss = new Date().toLocaleDateString();
+  const ss = new Date().toString();
 
   return (
     <article
