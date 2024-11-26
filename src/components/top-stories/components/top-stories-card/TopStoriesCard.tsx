@@ -20,10 +20,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
   const [date, setDate] = useState<string>('');
 
   useEffect(() => {
-    if (topStory.created_date) {
-      const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
-      setDate(date);
-    }
+    setDate(format(topStory.created_date, 'MMMM d, yyyy, HH:mm'));
   }, [topStory.created_date]);
 
   return (
