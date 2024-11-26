@@ -26,12 +26,6 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
     }
   }, [topStory.created_date]);
 
-  function ss(e: string) {
-    if (e) {
-      return format(e, 'MMMM d, yyyy, HH:mm');
-    }
-  }
-
   return (
     <article
       className={classNames(
@@ -50,9 +44,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
           <span className="mr-5 max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
             {topStory.section}
           </span>
-          <p className={classNames('text-sm', 'md:hidden')}>
-            {ss(topStory.created_date)}
-          </p>
+          <p className={classNames('text-sm', 'md:hidden')}>{date}</p>
         </div>
         <h2 className="mb-4 text-xl font-semibold">{topStory.title}</h2>
         <p className={classNames('md:mb-4')}>{topStory.abstract}</p>
