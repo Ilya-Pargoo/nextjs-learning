@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
@@ -17,10 +17,12 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
     (media) => media.format === 'threeByTwoSmallAt2X'
   );
 
-  let date;
+  const [date, setDate] = useState<string>('');
+
   useEffect(() => {
     if (topStory.created_date) {
-      date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
+      const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
+      setDate(date);
     }
   }, [topStory.created_date]);
   // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
