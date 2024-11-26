@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 type Props = {
   topStory: TopStory;
@@ -18,7 +18,7 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
   );
 
   // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
-  const ss = new Date();
+  const ss = new Date().toLocaleDateString();
 
   return (
     <article

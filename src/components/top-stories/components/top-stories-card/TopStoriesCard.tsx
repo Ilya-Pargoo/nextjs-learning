@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 type Props = {
   topStory: TopStory;
@@ -17,8 +17,8 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
     (media) => media.format === 'threeByTwoSmallAt2X'
   );
 
-  const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
-  const ss = new Date();
+  // const date = format(topStory.created_date, 'MMMM d, yyyy, HH:mm');
+  const ss = new Date().toLocaleDateString();
 
   return (
     <article
@@ -42,9 +42,7 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
         </div>
         <h2 className="mb-4 text-xl font-semibold">{topStory.title}</h2>
         <p className={classNames('md:mb-4')}>{topStory.abstract}</p>
-        <p className={classNames('mt-auto hidden text-sm', 'md:block')}>
-          {ss.toString()}
-        </p>
+        <p className={classNames('mt-auto hidden text-sm', 'md:block')}>{ss}</p>
       </div>
       <div
         className={classNames(
