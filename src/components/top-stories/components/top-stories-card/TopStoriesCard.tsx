@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { formatDate } from '@/helpers/formatDate';
 import { TopStory } from '@/api/top-stories/types';
+import { format } from 'date-fns';
 
 type Props = {
   topStory: TopStory;
@@ -36,13 +36,13 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
             {topStory.section}
           </span>
           <p className={classNames('text-sm', 'md:hidden')}>
-            {formatDate(topStory.created_date)}
+            {format(topStory.created_date, 'MMMM d, yyyy, HH:mm')}
           </p>
         </div>
         <h2 className="mb-4 text-xl font-semibold">{topStory.title}</h2>
         <p className={classNames('md:mb-4')}>{topStory.abstract}</p>
         <p className={classNames('mt-auto hidden text-sm', 'md:block')}>
-          {formatDate(topStory.created_date)}
+          {format(topStory.created_date, 'MMMM d, yyyy, HH:mm')}
         </p>
       </div>
       <div

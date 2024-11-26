@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
-import { formatDate } from '@/helpers/formatDate';
+import { format } from 'date-fns';
 
 type Props = {
   topStory: TopStory;
@@ -31,7 +31,9 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
         <span className="max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
           {topStory.section}
         </span>
-        <p className="text-sm">{formatDate(topStory.created_date)}</p>
+        <p className="text-sm">
+          {format(topStory.created_date, 'MMMM d, yyyy, HH:mm')}
+        </p>
       </div>
       <div
         className={classNames(
@@ -56,7 +58,7 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
         />
       </div>
       <div className={classNames('container max-w-4.5xl')}>
-        <h2 className="text-2.5xl mb-4 font-semibold leading-9">
+        <h2 className="mb-4 text-2.5xl font-semibold leading-9">
           {topStory.title}
         </h2>
         <p className="mb-10 italic">{topStory.abstract}</p>
