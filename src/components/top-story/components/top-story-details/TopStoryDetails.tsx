@@ -3,7 +3,6 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
 import { format } from 'date-fns';
-// import { format } from 'date-fns';
 
 type Props = {
   topStory: TopStory;
