@@ -9,11 +9,11 @@ type Props = {
 };
 
 export const TopStoryDetails: FC<Props> = ({ topStory }) => {
-  const desktopImage = topStory.multimedia.find(
+  const desktopImage = topStory?.multimedia?.find(
     (media) => media.format === 'Super Jumbo'
   );
 
-  const mobileImage = topStory.multimedia.find(
+  const mobileImage = topStory?.multimedia?.find(
     (media) => media.format === 'threeByTwoSmallAt2X'
   );
 
