@@ -9,8 +9,8 @@ type Props = {
 };
 
 export const DreamStoryDetails: FC<Props> = ({ dreamStory }) => {
-  const desktopImage = dreamStory.image.formats.large;
-  const mobileImage = dreamStory.image.formats.small;
+  const desktopImage = dreamStory.image?.formats.large || '';
+  const mobileImage = dreamStory.image?.formats.small || '';
 
   const [date, setDate] = useState<string>('');
 

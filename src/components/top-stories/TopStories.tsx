@@ -34,10 +34,6 @@ export const TopStories: FC = () => {
     );
   }
 
-  if (topStories?.results) {
-    console.log(topStories?.results);
-  }
-
   return (
     <main>
       <div className={classNames('container py-5', 'md:py-10')}>
