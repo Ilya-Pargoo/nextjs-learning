@@ -37,7 +37,9 @@ export const DreamStories: FC = () => {
   return (
     <main>
       <div className={classNames('container py-5', 'md:py-10')}>
-        <DreamStoriesList dreamStories={dreamStories?.data || []} />
+        {dreamStories?.data?.length ? (
+          <DreamStoriesList dreamStories={dreamStories.data} />
+        ) : null}
       </div>
     </main>
   );

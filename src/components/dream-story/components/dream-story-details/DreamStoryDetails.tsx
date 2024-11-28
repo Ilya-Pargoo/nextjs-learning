@@ -15,9 +15,11 @@ export const DreamStoryDetails: FC<Props> = ({ dreamStory }) => {
   const [date, setDate] = useState<string>('');
 
   useEffect(() => {
-    const date = parseISO(dreamStory.date);
-    const formattedDate = format(date, 'MMMM d, yyyy, HH:mm');
-    setDate(formattedDate);
+    if (dreamStory?.date) {
+      const date = parseISO(dreamStory.date);
+      const formattedDate = format(date, 'MMMM d, yyyy, HH:mm');
+      setDate(formattedDate);
+    }
   }, [dreamStory.date]);
 
   return (

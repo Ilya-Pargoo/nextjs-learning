@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { TopStory } from '@/api/top-stories/types';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 type Props = {
   topStory: TopStory;
@@ -20,7 +20,11 @@ export const TopStoryDetails: FC<Props> = ({ topStory }) => {
   const [date, setDate] = useState<string>('');
 
   useEffect(() => {
-    setDate(format(topStory.created_date, 'MMMM d, yyyy, HH:mm'));
+    if (topStory?.created_date) {
+      const date = parseISO(topStory.created_date);
+      const formattedDate = format(date, 'MMMM d, yyyy, HH:mm');
+      setDate(formattedDate);
+    }
   }, [topStory.created_date]);
 
   return (

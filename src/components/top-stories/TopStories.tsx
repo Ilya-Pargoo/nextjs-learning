@@ -37,7 +37,9 @@ export const TopStories: FC = () => {
   return (
     <main>
       <div className={classNames('container py-5', 'md:py-10')}>
-        <TopStoriesList topStories={topStories?.results || []} />
+        {topStories?.results?.length ? (
+          <TopStoriesList topStories={topStories.results} />
+        ) : null}
       </div>
     </main>
   );
