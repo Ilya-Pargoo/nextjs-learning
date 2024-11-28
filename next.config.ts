@@ -3,7 +3,10 @@ import { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['static01.nyt.com'],
+    domains: [
+      'static01.nyt.com',
+      'engaging-smile-05ed68d3d2.media.strapiapp.com',
+    ],
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports

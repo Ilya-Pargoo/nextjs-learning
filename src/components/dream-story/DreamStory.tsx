@@ -1,10 +1,19 @@
 import { FC } from 'react';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { useTopStories } from '@/api/top-stories/queries';
-import { TopStoriesList } from './components/top-stories-list';
+import { useSingleStory } from '@/api/strapi/queries';
+import { DreamStoryDetails } from './components/dream-story-details';
 
-export const TopStories: FC = () => {
-  const { data: topStories, isLoading, isError, refetch } = useTopStories();
+export const DreamStory: FC = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  const {
+    data: dreamStory,
+    isLoading,
+    refetch,
+    isError,
+  } = useSingleStory(slug?.toString() || '');
 
   if (isLoading) {
     return (
@@ -36,11 +45,9 @@ export const TopStories: FC = () => {
 
   return (
     <main>
-      <div className={classNames('container py-5', 'md:py-10')}>
-        {topStories?.results?.length ? (
-          <TopStoriesList topStories={topStories.results} />
-        ) : null}
-      </div>
+      {dreamStory?.data ? (
+        <DreamStoryDetails dreamStory={dreamStory.data} />
+      ) : null}
     </main>
   );
 };

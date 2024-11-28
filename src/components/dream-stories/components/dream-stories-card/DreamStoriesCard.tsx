@@ -1,31 +1,26 @@
 import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { TopStory } from '@/api/top-stories/types';
+import { DreamStory } from '@/api/strapi/types';
 import { format, parseISO } from 'date-fns';
 
 type Props = {
-  topStory: TopStory;
+  dreamStory: DreamStory;
 };
 
-export const TopStoriesCard: FC<Props> = ({ topStory }) => {
-  const desktopImage = topStory?.multimedia?.find(
-    (media) => media.format === 'Super Jumbo'
-  );
-
-  const mobileImage = topStory?.multimedia?.find(
-    (media) => media.format === 'threeByTwoSmallAt2X'
-  );
+export const DreamStoriesCard: FC<Props> = ({ dreamStory }) => {
+  const desktopImage = dreamStory.image.formats.large;
+  const mobileImage = dreamStory.image.formats.small;
 
   const [date, setDate] = useState<string>('');
 
   useEffect(() => {
-    if (topStory?.created_date) {
-      const date = parseISO(topStory.created_date);
+    if (dreamStory?.date) {
+      const date = parseISO(dreamStory.date);
       const formattedDate = format(date, 'MMMM d, yyyy, HH:mm');
       setDate(formattedDate);
     }
-  }, [topStory.created_date]);
+  }, [dreamStory.date]);
 
   return (
     <article
@@ -42,13 +37,10 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
             'md:mb-6'
           )}
         >
-          <span className="mr-5 max-w-max rounded-1 bg-main px-2 py-1 capitalize text-white">
-            {topStory.section}
-          </span>
           <p className={classNames('text-sm', 'md:hidden')}>{date}</p>
         </div>
-        <h2 className="mb-4 text-xl font-semibold">{topStory.title}</h2>
-        <p className={classNames('md:mb-4')}>{topStory.abstract}</p>
+        <h2 className="mb-4 text-xl font-semibold">{dreamStory.title}</h2>
+        <p className={classNames('md:mb-4')}>{dreamStory.excerpt}</p>
         <p className={classNames('mt-auto hidden text-sm', 'md:block')}>
           {date}
         </p>
@@ -62,14 +54,14 @@ export const TopStoriesCard: FC<Props> = ({ topStory }) => {
       >
         <Image
           src={mobileImage?.url || ''}
-          alt={mobileImage?.caption || ''}
+          alt={dreamStory.image?.alternativeText || ''}
           fill
           className={classNames('block', 'md:hidden')}
           sizes="(max-width: 767px) 100vw"
         />
         <Image
           src={desktopImage?.url || ''}
-          alt={desktopImage?.caption || ''}
+          alt={dreamStory.image?.alternativeText || ''}
           fill
           className={classNames('hidden', 'md:block')}
           sizes="(min-width: 768px) 50vw"

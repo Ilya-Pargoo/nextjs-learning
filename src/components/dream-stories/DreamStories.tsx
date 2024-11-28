@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import { useTopStories } from '@/api/top-stories/queries';
-import { TopStoriesList } from './components/top-stories-list';
+import { useDreamStories } from '@/api/strapi/queries';
+import { DreamStoriesList } from './components/dream-stories-list/DreamStoriesList';
 
-export const TopStories: FC = () => {
-  const { data: topStories, isLoading, isError, refetch } = useTopStories();
+export const DreamStories: FC = () => {
+  const { data: dreamStories, isLoading, isError, refetch } = useDreamStories();
 
   if (isLoading) {
     return (
@@ -37,8 +37,8 @@ export const TopStories: FC = () => {
   return (
     <main>
       <div className={classNames('container py-5', 'md:py-10')}>
-        {topStories?.results?.length ? (
-          <TopStoriesList topStories={topStories.results} />
+        {dreamStories?.data?.length ? (
+          <DreamStoriesList dreamStories={dreamStories.data} />
         ) : null}
       </div>
     </main>

@@ -1,9 +1,14 @@
-import { API_URL, API_KEY } from '@/constants/variables';
+import {
+  TOP_STORIES_API_URL,
+  TOP_STORIES_API_KEY,
+} from '@/constants/variables';
 import { TopStories } from './types';
 import { generateSlug } from '@/utils/generateSlug';
 
 export const fetchTopStories = async () => {
-  const response = await fetch(`${API_URL}/arts.json?api-key=${API_KEY}`);
+  const response = await fetch(
+    `${TOP_STORIES_API_URL}/arts.json?api-key=${TOP_STORIES_API_KEY}`
+  );
 
   if (response.ok) {
     const data: TopStories = await response.json();
@@ -15,7 +20,9 @@ export const fetchTopStories = async () => {
 };
 
 export const fetchTopStoriesBySlug = async (slug: string) => {
-  const response = await fetch(`${API_URL}/arts.json?api-key=${API_KEY}`);
+  const response = await fetch(
+    `${TOP_STORIES_API_URL}/arts.json?api-key=${TOP_STORIES_API_KEY}`
+  );
 
   if (response.ok) {
     const data: TopStories = await response.json();
