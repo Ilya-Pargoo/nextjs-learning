@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { DreamStory } from '@/api/strapi/types';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 type Props = {
   dreamStory: DreamStory;
@@ -15,7 +15,9 @@ export const DreamStoriesCard: FC<Props> = ({ dreamStory }) => {
   const [date, setDate] = useState<string>('');
 
   useEffect(() => {
-    setDate(format(dreamStory.date, 'MMMM d, yyyy, HH:mm'));
+    const date = parseISO(dreamStory.date);
+    const formattedDate = format(date, 'MMMM d, yyyy, HH:mm');
+    setDate(formattedDate);
   }, [dreamStory.date]);
 
   return (
